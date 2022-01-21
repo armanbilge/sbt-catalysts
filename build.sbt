@@ -24,13 +24,13 @@ addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat"        % "0.1.20")
 
 scalacOptions ++= Seq(Opts.compile.deprecation, "-feature")
 
-scalaVersion := "2.12.15"
-
-scmInfo := Some(ScmInfo(url("https://github.com/typelevel/sbt-catalysts"), "git@github.com:typelevel/sbt-catalysts.git"))
+ThisBuild / scalaVersion := "2.12.15"
+ThisBuild / crossScalaVersions := List(scalaVersion.value)
+ThisBuild / tlBaseVersion := "1.2"
+ThisBuild / tlCiReleaseBranches := Seq("master")
 
 inThisBuild(List(
   organization := "org.typelevel",
-  homepage := Some(url("https://github.com/typelevel/sbt-catalysts")),
   licenses := List("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")),
   developers := List(
     Developer(
@@ -40,7 +40,6 @@ inThisBuild(List(
       url("https://kailuowang.com")
     )
   ),
-  versionScheme := Some("semver-spec")
 ))
 scriptedBufferLog := false
 
